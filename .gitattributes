@@ -1,2 +1,10 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# GitHub Linguist: destacar as linguagens principais do projeto na barra Languages
+*.js linguist-detectable=true linguist-vendored=false linguist-language=JavaScript
+*.css linguist-detectable=true linguist-vendored=false linguist-language=CSS
+*.html linguist-detectable=true linguist-vendored=false linguist-language=HTML
+assets/js/** linguist-detectable=true linguist-vendored=false linguist-language=JavaScript
+assets/css/** linguist-detectable=true linguist-vendored=false linguist-language=CSS
+tests/** linguist-detectable=true linguist-vendored=false linguist-language=JavaScript

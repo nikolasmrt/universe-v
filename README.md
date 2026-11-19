@@ -1,6 +1,23 @@
 # Universe-v // FPS Planetary Explorer
 
-Explorador espacial 3D interativo construído com **Three.js (WebGL)**, **JavaScript ES Modules**, **HTML5** e **CSS3**. Navegue por um sistema solar em órbita, selecione mundos diretamente pelo HUD ou clicando nos planetas em 3D e pouse na superfície para explorar em primeira pessoa (FPS) com gravidade diferenciada, riscos ambientais, coleta de itens e telemetria em tempo real.
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B%20%2F%20ES%20Modules-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)
+![Three.js](https://img.shields.io/badge/Three.js-WebGL%203D-000000?style=for-the-badge&logo=threedotjs&logoColor=00f3ff)
+![HTML5](https://img.shields.io/badge/HTML5-Sem%C3%A2ntico-E34F26?style=for-the-badge&logo=html5&logoColor=fff)
+![CSS3](https://img.shields.io/badge/CSS3-Sci--Fi%20HUD-1572B6?style=for-the-badge&logo=css3&logoColor=fff)
+![Node.js](https://img.shields.io/badge/Node.js-Test%20Runner-339933?style=for-the-badge&logo=nodedotjs&logoColor=fff)
+
+Explorador espacial 3D interativo construído com **JavaScript (ES6+ / ES Modules)**, **Three.js (WebGL)**, **HTML5** e **CSS3**. Navegue por um sistema solar em órbita, selecione mundos diretamente pelo HUD ou clicando nos planetas em 3D e pouse na superfície para explorar em primeira pessoa (FPS) com gravidade diferenciada, riscos ambientais, coleta de itens e telemetria em tempo real.
+
+---
+
+## 💻 Linguagens e Tecnologias Principais
+
+| Linguagem / Tecnologia | Papel no Projeto | Destaques Técnicos |
+| :--- | :--- | :--- |
+| **JavaScript (ES6+ / ES Modules)** | **Linguagem principal (~84% do código)** | Arquitetura modular orientada a objetos (`GameEngine`, `GameManager`, `PlayerController`, `PlanetFactory` e classes planetárias), física de gravidade/colisão por Raycasting e suíte de testes automatizados (`node:test`). |
+| **Three.js / WebGL** | **Motor gráfico 3D** | Renderização em tempo real de terrenos procedurais, iluminação dinâmica, partículas atmosféricas (`THREE.Points`), anéis orbitais e controle de câmera em 1ª pessoa (`PointerLockControls`). |
+| **CSS3** | **Interface e HUD Sci-Fi (~11% do código)** | Painéis translúcidos com `backdrop-filter: blur()`, variáveis CSS neon, barras dinâmicas de HP/progresso e layout responsivo. |
+| **HTML5** | **Estrutura e Importmap (~5% do código)** | Estrutura semântica dos overlays (`#hud-orbit`, `#blocker`, `#fps-hud`) e resolução nativa de módulos via `<script type="importmap">`. |
 
 ---
 
