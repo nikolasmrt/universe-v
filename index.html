@@ -1,42 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Universe</title>
-        <link rel="stylesheet" href=".\assets\css\style.css">
-    </head>
-    <body>  
-        <!-- Universo -->
-        <main class="cosmos">
-            <!-- Estrela e Nebulosa -->
-                <div class="star"></div>
-                <div class="star-special"></div>
-                <div class="nebula-1"></div>
-            <!-- Sistema Solar -->
-            <section class="solar-system">
-                <!-- Sol -->
-                <div class="sun"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe-v // FPS Planetary Explorer</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <div id="webgl-container"></div>
+    <div id="crosshair" class="crosshair">+</div>
 
-                <!-- Órbitas dos planetas -->
-                <div class="orbit">
-                    <div class="planet">
-                        <div id="planet-1" class="planet">
-                            <div id="moon-orbit" class="orbit">
-                                <div id="moon"></div>
-                            </div>
-                        </div>
-                        <div id="planet-2" class="planet"></div>
-                        <div id="planet-3" class="planet"></div>
-                    </div>
+    <!-- Overlay de Pouso / Pausa FPS -->
+    <div id="blocker">
+        <div id="instructions" class="overlay-card">
+            <span class="badge-mode">SISTEMA DE POUSO PLANETÁRIO</span>
+            <h2 id="planet-title">Sistema Desconhecido</h2>
+            <p id="planet-subtitle" class="planet-subtitle">Prepare-se para iniciar a exploração em primeira pessoa.</p>
+            <p class="controls-hint">W, A, S, D / Setas = Mover • SHIFT = Correr • ESPAÇO = Pular • ESC = Pausar • O = Órbita</p>
+            <div class="overlay-actions">
+                <button id="btn-start-explore" class="btn-action btn-primary">Iniciar Exploração</button>
+                <button id="btn-return-orbit" class="btn-action btn-secondary" style="display: none;">Retornar à Órbita</button>
+            </div>
+        </div>
+    </div>
 
-                </div>
-            </section>
+    <!-- HUD Ativo em 1ª Pessoa -->
+    <div id="fps-hud" style="display: none;">
+        <div class="hud-top-left hud-panel">
+            <div class="hud-meta">
+                <span id="hud-planet-name" class="hud-planet-title">Aegis-9</span>
+                <span id="hud-gravity" class="hud-chip">Gravidade: 1.0G</span>
+                <span id="hud-hazard" class="hud-chip">Risco: Estável</span>
+            </div>
+            <div class="health-bar-container">
+                <div id="health-bar-fill"></div>
+            </div>
+            <p id="health-text">HP: 100%</p>
+            <p id="hud-telemetry-coords" class="hud-coords">POS: (0.0, 5.0, 0.0) | VEL: 0.0 m/s</p>
+        </div>
 
-            <!-- Cabeçalho -->
-            <header class="ui-header">
-                <h1>Universe-v</h1>
-                <p>Explorando fundamentos do zero.</p>
-        </main>
-    </body>
+        <div class="hud-top-right hud-panel">
+            <h3>MISSÃO ATIVA</h3>
+            <p id="objective-text">Explore a superfície em busca de anomalias.</p>
+            <div class="progress-bar-container">
+                <div id="hud-progress-fill"></div>
+            </div>
+            <div class="hud-footer-actions">
+                <span class="hud-shortcut">[ESC] Menu / [O] Órbita</span>
+                <button id="btn-hud-orbit" class="btn-mini">Órbita</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HUD de Navegação Espacial (Modo Órbita) -->
+    <header class="hud-telemetry" id="hud-orbit">
+        <span class="badge-mode">TELEMETRIA ORBITAL</span>
+        <h1>UNIVERSE-v // NAVEGAÇÃO ESPACIAL</h1>
+        <div class="telemetry-data">
+            <p>Selecione um planeta no painel ou clique diretamente na órbita 3D para descer à superfície.</p>
+        </div>
+
+        <div class="planet-buttons">
+            <button id="btn-aegis" class="btn-action btn-planet-aegis">
+                <span class="planet-btn-name">Aegis-9 // Cristalino</span>
+                <span class="planet-btn-meta">1.0G • 15 Cristais Prismáticos</span>
+            </button>
+            <button id="btn-gaea" class="btn-action btn-planet-gaea">
+                <span class="planet-btn-name">Bio-Gaea // Mutante</span>
+                <span class="planet-btn-meta">0.6G • 10 Amostras • Toxina (-2 HP/s)</span>
+            </button>
+            <button id="btn-kronos" class="btn-action btn-planet-kronos">
+                <span class="planet-btn-name">Kronos-V // Ferro</span>
+                <span class="planet-btn-meta">2.5G • 8 Núcleos • Tempestade Elétrica</span>
+            </button>
+        </div>
+
+        <div id="orbit-planet-info" class="orbit-planet-info">
+            <strong>Aegis-9 (O Cristalino)</strong><br/>
+            <span>Planeta composto por estruturas cristalinas prismáticas que refratam a luz estelar.</span><br/>
+            <small>Gravidade: 1.0G (Nominal) • Risco: Estável</small>
+        </div>
+    </header>
+
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
 </html>
